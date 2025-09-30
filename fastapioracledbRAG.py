@@ -9,7 +9,7 @@ from IPython.display import HTML, Markdown
 import oracledb
 
 # Accept url and process:
-client = genai.Client(api_key='AIzaSyBlS-ju2iSBZnpcuVDUk2VdI9UKQK4I64U')
+client = genai.Client(api_key='************')
 
 #Create a GenerativeModel with the 'gemini-1.5-flash-latest' model
 model_id = "gemini-2.5-flash"
@@ -18,11 +18,11 @@ model_id = "gemini-2.5-flash"
 def get_db_connection():
     return oracledb.connect(
         user="ADMIN",
-        password="Welcome12345",
+        password="*******",
         dsn="ragai_high",
         config_dir="/content/drive/MyDrive/Colab Notebooks/rag-platform/Wallet_RAGai",
         wallet_location="/content/drive/MyDrive/Colab Notebooks/rag-platform/Wallet_RAGai",
-        wallet_password= 'Welcome123',
+        wallet_password= '********',
         ssl_server_dn_match=True   # ensures SSL hostname verification
     )
     
@@ -81,7 +81,7 @@ app = FastAPI()
 @app.post("/user_query")
 
 async def user_query(query: str = Form(...)):
-    client = genai.Client(api_key='AIzaSyBlS-ju2iSBZnpcuVDUk2VdI9UKQK4I64U')
+    client = genai.Client(api_key='*********')
         
     try:
         processed_response = build_RAG_context(query)
